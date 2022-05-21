@@ -8,6 +8,7 @@
   --dark: #27272a;
   --dark-aux: #3f3f46;
   --font-primary: "Macondo", cursive;
+  --shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
 }
 
 * {
@@ -71,6 +72,7 @@ section.full-height {
   min-height: 100vh;
 }
 
+/* #region welcome */
 section.welcome {
   display: flex;
   align-items: center;
@@ -88,6 +90,10 @@ section.welcome > .welcome-message {
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  align-items: center;
+  background: var(--light);
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
 }
 
 section.welcome > .welcome-message > h1 {
@@ -115,16 +121,189 @@ section.welcome > .welcome-message > a {
   font-size: 1.5rem;
   text-transform: uppercase;
   border-radius: 0.25rem;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: var(--shadow);
 }
 
 section.welcome > .welcome-figure {
   flex: 1;
   max-width: 40vw;
   align-self: flex-end;
+  display: flex;
 }
 
 section.welcome > .welcome-figure > img {
   max-height: 100%;
   max-width: 100%;
+}
+/* #endregion */
+
+/* #region show case */
+section.show-case {
+  background: var(--secondary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+section.show-case > h2 {
+  font-size: 2rem;
+  text-align: center;
+  color: var(--light-aux);
+}
+
+section.show-case > .cards-wrappers {
+  margin-top: 5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+section.show-case > .cards-wrappers > .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--light);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+section.show-case > .cards-wrappers > .card::after,
+section.show-case > .cards-wrappers > .card::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  background: var(--primary);
+  box-shadow: var(--shadow);
+
+  /** mudando a ancora */
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+section.show-case > .cards-wrappers > .card::before {
+  transform: translate(-50%, -50%) rotate(15deg);
+}
+
+section.show-case > .cards-wrappers > .card::after {
+  background: var(--light);
+}
+
+section.show-case > .cards-wrappers > .card > * {
+  z-index: 2;
+}
+
+section.show-case strong {
+  text-align: center;
+}
+
+section.show-case figure {
+  padding: 0.5rem;
+  margin: 1rem 0;
+}
+
+section.show-case figure > img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: var(--shadow);
+}
+
+section.show-case .card-detail {
+  text-align: justify;
+  max-width: 20rem;
+  padding: 0.5rem;
+  color: var(--dark-aux);
+}
+
+section.show-case .card-detail > p + p {
+  margin-top: 0.5rem;
+}
+/* #endregion */
+
+/* #region about-us */
+section.about-us {
+  background: var(--primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+section.about-us > h2 {
+  font-size: 3rem;
+}
+
+section.about-us > .about-info {
+  margin-top: 5rem;
+  padding: 2rem;
+  color: var(--dark-aux);
+  max-width: 60%;
+}
+
+section.about-us > .about-info > p {
+  padding: 0.5rem;
+  font-size: 1.25rem;
+}
+
+/* #endregion */
+
+/* #region social */
+section.social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--dark);
+  padding: 2rem;
+  overflow: hidden;
+}
+
+section.social > h2 {
+  color: var(--light-aux);
+  font-size: 3rem;
+}
+
+section.social > .social-wrapper {
+  flex: 1;
+  display: flex;
+  width: 100%;
+}
+
+section.social .social-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+  color: var(--light);
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 150ms, 
+    background-color 250ms, 
+    transform 300ms;
+    transition-delay: 100ms;
+}
+
+section.social .social-item:hover {
+  opacity: 1;
+  transform: skewX(10deg) scale(1.25);
+  background-color: var(--primary);
+  transition-delay: 0ms;
+}
+/* #endregion */
+
+footer {
+  background: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  color: var(--light);
 }
